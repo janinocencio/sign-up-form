@@ -58,7 +58,7 @@ function inputSubmitOnWrongState(input) {
     if(input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
     if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid Australian mobile number.";
     if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input a valid password.";
-    if(input.id === 'password_confirm') {} input.nextElementSibling.textContent = "*Please input a valid password.";
+    if(input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input a valid password.";
 };
 
 /****************** FUNCTIONS ENDS HERE ******************/
@@ -92,13 +92,17 @@ submitBtn.addEventListener('click', function(event) {
             switch(input.id) {
                 case 'name_first':
                     if (nameRegex.test(input.value.trim())) {
-                        inputSubmitOnCorrectState(input)
+                        inputSubmitOnCorrectState(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     }
                     break;
                 case 'name_last':
-                    console.log('test2');
+                    if (nameRegex.test(input.value.trim())) {
+                        inputSubmitOnCorrectState(input);
+                    } else {
+                        inputSubmitOnWrongState(input);
+                    }
                     break;
                 case 'email':
                     console.log('email');
