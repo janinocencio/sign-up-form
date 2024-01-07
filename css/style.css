@@ -119,6 +119,17 @@ html {
     font-size: 1.4rem;
     width: 20rem;
     height: 4rem;
+    background: var(--color-4);
+    border: 0.2rem solid var(--color-4);
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+.right-container form > button:hover {
+    background: var(--color-3);
+    border: 0.2rem solid var(--color-3);
+    opacity: 90%;
+    transition: 0.3s;
 }
 
 .right-container > p {
