@@ -16,7 +16,20 @@ function labelOnUnfocusedState(input) {
     input.previousElementSibling.style.fontSize = '';
     input.previousElementSibling.style.padding = '';
     input.previousElementSibling.style.transition = '0.3s ease';
-}
+};
+
+function inputSubmitOnBlankState(input) {
+    input.style.border = '0.2rem solid var(--color-1)'
+    input.style.transition = '0.1s'
+    input.previousElementSibling.style.background = 'var(--color-1)';
+    input.previousElementSibling.style.color = 'black';
+    input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
+    input.previousElementSibling.style.fontSize = '1rem';
+    input.previousElementSibling.style.padding = '0 1rem';
+    input.previousElementSibling.style.transition = '0.3s ease';
+    input.nextElementSibling.textContent = "*This field is required.";
+    input.nextElementSibling.style.color = 'var(--color-1)';
+};
 
 
 /****************** FUNCTIONS ENDS HERE ******************/
@@ -39,22 +52,12 @@ inputArray.forEach(input => {
     })
 });
 
-
 const submitBtn = document.querySelector('.right-container form > button');
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
     inputArray.forEach(input => {
         if (input.value.trim() === '') {
-            input.style.border = '0.2rem solid var(--color-1)'
-            input.style.transition = '0.1s'
-            input.previousElementSibling.style.background = 'var(--color-1)';
-            input.previousElementSibling.style.color = 'black';
-            input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
-            input.previousElementSibling.style.fontSize = '1rem';
-            input.previousElementSibling.style.padding = '0 1rem';
-            input.previousElementSibling.style.transition = '0.3s ease';
-            input.nextElementSibling.textContent = "*This field is required.";
-            input.nextElementSibling.style.color = 'var(--color-1)';
+            inputSubmitOnBlankState(input);
         } else {
             switch(input.id) {
                 case 'name_first':
