@@ -41,7 +41,7 @@ function inputSubmitOnCorrectState(input) {
     input.previousElementSibling.style.padding = '0 1rem';
     input.previousElementSibling.style.transition = '0.3s ease';
     input.nextElementSibling.textContent = '';
-}
+};
 
 function inputSubmitOnWrongState(input) {
     input.style.border = '0.2rem solid var(--color-1)'
@@ -59,7 +59,7 @@ function inputSubmitOnWrongState(input) {
     if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid Australian mobile number.";
     if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input a valid password.";
     if(input.id === 'password_confirm') {} input.nextElementSibling.textContent = "*Please input a valid password.";
-}
+};
 
 /****************** FUNCTIONS ENDS HERE ******************/
 
@@ -88,9 +88,9 @@ submitBtn.addEventListener('click', function(event) {
         if (input.value.trim() === '') {
             inputSubmitOnBlankState(input);
         } else {
+            const nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/
             switch(input.id) {
                 case 'name_first':
-                    const nameRegex = /^[a-zA-Z]+( [a-zA-Z]+)?$/
                     if (nameRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input)
                     } else {
