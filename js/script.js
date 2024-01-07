@@ -31,6 +31,35 @@ function inputSubmitOnBlankState(input) {
     input.nextElementSibling.style.color = 'var(--color-1)';
 };
 
+function inputSubmitOnCorrectState(input) {
+    input.style.border = '0.2rem solid var(--color-4)'
+    input.style.transition = '0.1s'
+    input.previousElementSibling.style.background = 'var(--color-4)';
+    input.previousElementSibling.style.color = 'black';
+    input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
+    input.previousElementSibling.style.fontSize = '1rem';
+    input.previousElementSibling.style.padding = '0 1rem';
+    input.previousElementSibling.style.transition = '0.3s ease';
+    input.nextElementSibling.textContent = '';
+}
+
+function inputSubmitOnWrongState(input) {
+    input.style.border = '0.2rem solid var(--color-1)'
+    input.style.transition = '0.1s'
+    input.previousElementSibling.style.background = 'var(--color-1)';
+    input.previousElementSibling.style.color = 'black';
+    input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
+    input.previousElementSibling.style.fontSize = '1rem';
+    input.previousElementSibling.style.padding = '0 1rem';
+    input.previousElementSibling.style.transition = '0.3s ease';
+    input.nextElementSibling.style.color = 'var(--color-1)';
+    if(input.id === 'name_first') input.nextElementSibling.textContent = "*Please input a valid name.";
+    if(input.id === 'name_last') input.nextElementSibling.textContent = "*Please input a valid name.";
+    if(input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
+    if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid Australian mobile number.";
+    if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input a valid password.";
+    if(input.id === 'password_confirm') {} input.nextElementSibling.textContent = "*Please input a valid password.";
+}
 
 /****************** FUNCTIONS ENDS HERE ******************/
 
@@ -63,26 +92,9 @@ submitBtn.addEventListener('click', function(event) {
                 case 'name_first':
                     const nameRegex = /^[a-zA-Z]+( [a-zA-Z]+)?$/
                     if (nameRegex.test(input.value.trim())) {
-                        input.style.border = '0.2rem solid var(--color-4)'
-                        input.style.transition = '0.1s'
-                        input.previousElementSibling.style.background = 'var(--color-4)';
-                        input.previousElementSibling.style.color = 'black';
-                        input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
-                        input.previousElementSibling.style.fontSize = '1rem';
-                        input.previousElementSibling.style.padding = '0 1rem';
-                        input.previousElementSibling.style.transition = '0.3s ease';
-                        input.nextElementSibling.textContent = '';
+                        inputSubmitOnCorrectState(input)
                     } else {
-                        input.style.border = '0.2rem solid var(--color-1)'
-                        input.style.transition = '0.1s'
-                        input.previousElementSibling.style.background = 'var(--color-1)';
-                        input.previousElementSibling.style.color = 'black';
-                        input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
-                        input.previousElementSibling.style.fontSize = '1rem';
-                        input.previousElementSibling.style.padding = '0 1rem';
-                        input.previousElementSibling.style.transition = '0.3s ease';
-                        input.nextElementSibling.textContent = "*Please input a valid name.";
-                        input.nextElementSibling.style.color = 'var(--color-1)';
+                        inputSubmitOnWrongState(input);
                     }
                     break;
                 case 'name_last':
