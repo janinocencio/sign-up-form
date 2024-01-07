@@ -9,6 +9,16 @@ function labelOnNeutralState(input) {
     input.previousElementSibling.style.transition = '0.3s ease';
 };
 
+function labelOnUnfocusedState(input) {
+    input.previousElementSibling.style.background = '';
+    input.previousElementSibling.style.color = '';
+    input.previousElementSibling.style.transform = '';
+    input.previousElementSibling.style.fontSize = '';
+    input.previousElementSibling.style.padding = '';
+    input.previousElementSibling.style.transition = '0.3s ease';
+}
+
+
 /****************** FUNCTIONS ENDS HERE ******************/
 
 
@@ -22,14 +32,9 @@ inputArray.forEach(input => {
 });
 
 inputArray.forEach(input => {
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', () => {
         if (input.value.trim() === '') {
-            input.previousElementSibling.style.background = '';
-            input.previousElementSibling.style.color = '';
-            input.previousElementSibling.style.transform = '';
-            input.previousElementSibling.style.fontSize = '';
-            input.previousElementSibling.style.padding = '';
-            input.previousElementSibling.style.transition = '0.3s ease';
+            labelOnUnfocusedState(input);
         }
     })
 });
