@@ -30,6 +30,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
   /**************************/
 
+:root {
+    --color-1: #f43a09;
+    --color-2: #ffb766;
+    --color-3: #c2edda;
+    --color-4: #68d388;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -74,4 +81,41 @@ html {
 
 .right-container {
     width: 60%;
+    padding: 6rem 8rem;
+}
+
+.right-container h1 {
+    font-size: 4.4rem;
+}
+
+.form-main-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.form-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-sub-container input {
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    width: 24rem;
+}
+
+.right-container form > button {
+    font-size: 1.4rem;
+    width: 20rem;
+    height: 4rem;
+}
+
+.right-container > p {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
 }
