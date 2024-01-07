@@ -87,7 +87,7 @@ html {
 
 .right-container {
     width: 60%;
-    padding: 6rem 8rem;
+    padding: 8rem 8rem;
 }
 
 .right-container h1 {
@@ -97,22 +97,44 @@ html {
 .form-main-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 .form-sub-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 6rem;
+    margin-bottom: 4rem;
+}
+
+.form-sub-container > div {
+    position: relative;
+}
+
+.form-sub-container label {
+    position: absolute;
+    font-size: 1.6rem;
+    color: gray;
+    top: 0.5rem;
+    left: 1rem;
 }
 
 .form-sub-container input {
     font-size: 1.4rem;
     border-radius: 0.4rem;
     padding: 0.5rem 0rem 0.5rem 1rem;
-    width: 24rem;
+    width: 28rem;
+    border-bottom: 0.2rem solid var(--color-3);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: 0.1s ease;
+}
+
+.form-sub-container input:focus {
+    border: 0.2rem solid var(--color-2);
+    outline: none;
 }
 
 .right-container form > button {
@@ -126,8 +148,8 @@ html {
 }
 
 .right-container form > button:hover {
-    background: var(--color-3);
-    border: 0.2rem solid var(--color-3);
+    background: var(--color-2);
+    border: 0.2rem solid var(--color-2);
     opacity: 90%;
     transition: 0.3s;
 }
