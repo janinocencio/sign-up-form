@@ -14,7 +14,7 @@ inputArray.forEach(input => {
 
 inputArray.forEach(input => {
     input.addEventListener('blur', function() {
-        if (input.value === '') {
+        if (input.value.trim() === '') {
             this.previousElementSibling.style.background = '';
             this.previousElementSibling.style.color = '';
             this.previousElementSibling.style.transform = '';
@@ -22,5 +22,26 @@ inputArray.forEach(input => {
             this.previousElementSibling.style.padding = '';
             this.previousElementSibling.style.transition = '0.3s ease';
         }
+    })
+});
+
+
+const submitBtn = document.querySelector('.right-container form > button');
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    inputArray.forEach(input => {
+        if (input.value.trim() === '') {
+            input.style.border = '0.2rem solid var(--color-1)'
+            input.style.transition = '0.1s'
+            input.previousElementSibling.style.background = 'var(--color-1)';
+            input.previousElementSibling.style.color = 'black';
+            input.previousElementSibling.style.transform = 'translate(0.5rem, -1.25rem)';
+            input.previousElementSibling.style.fontSize = '1rem';
+            input.previousElementSibling.style.padding = '0 1rem';
+            input.previousElementSibling.style.transition = '0.3s ease';
+            input.nextElementSibling.textContent = "*This field is required.";
+            input.nextElementSibling.style.color = 'var(--color-1)';
+        }
+        
     })
 });

@@ -162,3 +162,9 @@ html {
     font-size: 1.2rem;
     margin-top: 1.2rem;
 }
+
+.error {
+    width: 20rem;
+    height: 2rem;
+    font-size: 1.2rem;
+}
