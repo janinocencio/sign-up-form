@@ -56,9 +56,9 @@ function inputSubmitOnWrongState(input) {
     if(input.id === 'name_first') input.nextElementSibling.textContent = "*Please input a valid name.";
     if(input.id === 'name_last') input.nextElementSibling.textContent = "*Please input a valid name.";
     if(input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
-    if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid Australian mobile number.";
-    if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input a valid password.";
-    if(input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input a valid password.";
+    if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid AU mobile number.";
+    if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input at least six characters.";
+    if(input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input at least six characters.";
 };
 
 /****************** FUNCTIONS ENDS HERE ******************/
@@ -77,47 +77,62 @@ inputArray.forEach(input => {
     input.addEventListener('blur', () => {
         if (input.value.trim() === '') {
             labelOnUnfocusedState(input);
-        }
-    })
-});
-
-const submitBtn = document.querySelector('.right-container form > button');
+            asdfcontainer form > button');
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
     inputArray.forEach(input => {
         if (input.value.trim() === '') {
             inputSubmitOnBlankState(input);
         } else {
-            const nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/
+            const nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+            const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+            const mobileRegex = /^0\d{9}$/;
+            const passwordRegex = /^.{6,}$/;
             switch(input.id) {
                 case 'name_first':
                     if (nameRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
                     } else {
                         inputSubmitOnWrongState(input);
-                    }
+                    };
                     break;
                 case 'name_last':
                     if (nameRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
                     } else {
                         inputSubmitOnWrongState(input);
-                    }
+                    };
                     break;
                 case 'email':
-                    console.log('email');
+                    if (emailRegex.test(input.value.trim())) {
+                        inputSubmitOnCorrectState(input);
+                    } else {
+                        inputSubmitOnWrongState(input);
+                    };
                     break;
                 case 'mobile':
-                    console.log('mobile');
+                    if (mobileRegex.test(input.value.trim())) {
+                        inputSubmitOnCorrectState(input);
+                    } else {
+                        inputSubmitOnWrongState(input);
+                    };
                     break;
                 case 'password_orig':
-                    console.log('passOrig');
+                    if (passwordRegex.test(input.value.trim())) {
+                        inputSubmitOnCorrectState(input);
+                    } else {
+                        inputSubmitOnWrongState(input);
+                    };
                     break;
                 case 'password_confirm':
-                    console.log('passwordConfirm');
+                    if (passwordRegex.test(input.value.trim())) {
+                        inputSubmitOnCorrectState(input);
+                    } else {
+                        inputSubmitOnWrongState(input);
+                    };
                     break;
             }
-        }
+        };
 
     })
 });
