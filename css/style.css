@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* CSS Reset from joshwcomeau */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -39,6 +41,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 html {
     font-size: 62.5%;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 .main-container {
@@ -52,6 +55,7 @@ html {
     justify-content: space-between;
     position: relative;
     width: 40%;
+    background: var(--color-3);
 }
 
 #background {
@@ -62,6 +66,7 @@ html {
     height: 100%;
     z-index: -1;
     object-fit: cover;
+    display: none;
 }
 
 #logo {
@@ -70,6 +75,7 @@ html {
     left: 1.5rem;
     border-radius: 50%;
     width: 7.5rem;
+    display: none;
 }
 
 .footer {
