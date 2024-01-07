@@ -129,12 +129,16 @@ html {
     border-top: none;
     border-left: none;
     border-right: none;
-    transition: 0.1s ease;
 }
 
 .form-sub-container input:focus {
     border: 0.2rem solid var(--color-2);
     outline: none;
+    transition: 0.2s ease;
+}
+
+.form-sub-container input:not(:focus) {
+    transition: 0.8s ease;
 }
 
 .right-container form > button {
