@@ -77,7 +77,11 @@ inputArray.forEach(input => {
     input.addEventListener('blur', () => {
         if (input.value.trim() === '') {
             labelOnUnfocusedState(input);
-            asdfcontainer form > button');
+        }
+    })
+});
+
+const submitBtn = document.querySelector('.right-container form > button');
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
     inputArray.forEach(input => {
@@ -132,7 +136,6 @@ submitBtn.addEventListener('click', function(event) {
                     };
                     break;
             }
-        };
-
+        }
     })
 });
