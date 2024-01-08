@@ -58,24 +58,12 @@ html {
     background: var(--color-3);
 }
 
-#background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-    display: none;
-}
-
 #logo {
     position: relative;
-    top: 1.5rem;
-    left: 1.5rem;
+    top: 50%;
+    left: 25%;
     border-radius: 50%;
-    width: 7.5rem;
-    display: none;
+    width: 50%;
 }
 
 .footer {
