@@ -66,11 +66,36 @@ html {
     width: 50%;
 }
 
+#logo:hover {
+    opacity: 80%;
+    transition: 0.3s ease;
+}
+
+.footer .fa {
+    text-decoration: none;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    color: black;
+    background: var(--color-4);
+    font-size: 1.6rem;
+    margin: 1rem;
+    border-radius: 50%;
+}
+
+.footer .fa:hover {
+    background: var(--color-2);
+    opacity: 90%;
+    transition: 0.3s;
+}
+
 .footer {
     position: relative;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
+    font-style: italic;
 }
 
 .right-container {
