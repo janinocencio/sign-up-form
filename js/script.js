@@ -53,12 +53,12 @@ function inputSubmitOnWrongState(input) {
     input.previousElementSibling.style.padding = '0 1rem';
     input.previousElementSibling.style.transition = '0.3s ease';
     input.nextElementSibling.style.color = 'var(--color-1)';
-    if(input.id === 'name_first') input.nextElementSibling.textContent = "*Please input a valid name.";
-    if(input.id === 'name_last') input.nextElementSibling.textContent = "*Please input a valid name.";
-    if(input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
-    if(input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid AU mobile number.";
-    if(input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input at least six characters.";
-    if(input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input at least six characters.";
+    if (input.id === 'name_first') input.nextElementSibling.textContent = "*Please input a valid name.";
+    if (input.id === 'name_last') input.nextElementSibling.textContent = "*Please input a valid name.";
+    if (input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
+    if (input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid AU mobile number.";
+    if (input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input at least six characters.";
+    if (input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input at least six characters.";
 };
 
 /****************** FUNCTIONS ENDS HERE ******************/
