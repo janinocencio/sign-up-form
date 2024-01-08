@@ -44,6 +44,12 @@ html {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+@media (max-width: 768px) {
+    html {
+        font-size: 31.25%;
+    }
+}
+
 .main-container {
     height: 100vh;
     display: flex;
