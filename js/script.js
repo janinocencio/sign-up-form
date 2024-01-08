@@ -58,7 +58,17 @@ function inputSubmitOnWrongState(input) {
     if (input.id === 'email') input.nextElementSibling.textContent = "*Please input a valid e-mail address.";
     if (input.id === 'mobile') input.nextElementSibling.textContent = "*Please input a valid AU mobile number.";
     if (input.id === 'password_orig') input.nextElementSibling.textContent = "*Please input at least six characters.";
-    if (input.id === 'password_confirm') input.nextElementSibling.textContent = "*Please input at least six characters.";
+    if (input.id === 'password_confirm') input.nextElementSibling.textContent = "*Invalid password.";
+};
+
+let authArray = [0,0,0,0,0,0];
+function authenticateInput(input) {
+    if (input.id === 'name_first') authArray[0] = 1;
+    if (input.id === 'name_last') authArray[1] = 1;
+    if (input.id === 'email') authArray[2] = 1;
+    if (input.id === 'mobile') authArray[3] = 1;
+    if (input.id === 'password_orig') authArray[4] = 1;
+    if (input.id === 'password_confirm') authArray[5] = 1;
 };
 
 /****************** FUNCTIONS ENDS HERE ******************/
@@ -96,6 +106,7 @@ submitBtn.addEventListener('click', function(event) {
                 case 'name_first':
                     if (nameRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
@@ -103,6 +114,7 @@ submitBtn.addEventListener('click', function(event) {
                 case 'name_last':
                     if (nameRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
@@ -110,6 +122,7 @@ submitBtn.addEventListener('click', function(event) {
                 case 'email':
                     if (emailRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
@@ -117,6 +130,7 @@ submitBtn.addEventListener('click', function(event) {
                 case 'mobile':
                     if (mobileRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
@@ -124,13 +138,15 @@ submitBtn.addEventListener('click', function(event) {
                 case 'password_orig':
                     if (passwordRegex.test(input.value.trim())) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
                     break;
                 case 'password_confirm':
-                    if (passwordRegex.test(input.value.trim())) {
+                    if (passwordRegex.test(input.value.trim()) && inputArray[2].value === inputArray[5].value) {
                         inputSubmitOnCorrectState(input);
+                        authenticateInput(input);
                     } else {
                         inputSubmitOnWrongState(input);
                     };
@@ -138,4 +154,6 @@ submitBtn.addEventListener('click', function(event) {
             }
         }
     })
+    if (authArray.reduce((sum, current) => (sum + current)) === 6) setTimeout( () => {
+        alert("Registration complete.")}, 500); //time delay for animation catchup
 });
